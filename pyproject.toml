@@ -1,0 +1,17 @@
+[project]
+name = "clean-jetbrains-old"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "GideonBear" }
+]
+requires-python = ">=3.13"
+dependencies = []
+
+[project.scripts]
+clean-jetbrains-old = "clean_jetbrains_old:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

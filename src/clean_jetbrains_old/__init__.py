@@ -19,7 +19,7 @@ def clear(args: Namespace, dir: Path) -> None:
             continue
         tool, version = match.groups()
         tools[tool].append((Version(version), item))
-    for tool, versions in tools.items():
+    for _tool, versions in tools.items():
         if len(versions) <= 1:
             continue
         keep = max(x[0] for x in versions)

@@ -1,6 +1,6 @@
 import re
 import subprocess
-from argparse import Namespace, ArgumentParser
+from argparse import ArgumentParser, Namespace
 from collections import defaultdict
 from datetime import datetime, timedelta
 from pathlib import Path

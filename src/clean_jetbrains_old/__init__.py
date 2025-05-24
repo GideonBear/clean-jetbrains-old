@@ -22,7 +22,7 @@ def clear(args: Namespace, dir: Path) -> None:
     for tool, versions in tools.items():
         if len(versions) <= 1:
             continue
-        keep = max(map(lambda x: x[0], versions))
+        keep = max(x[0] for x in versions)
         for (version, item) in versions:
             if version == keep:
                 continue

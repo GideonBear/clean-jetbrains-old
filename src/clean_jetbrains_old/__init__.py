@@ -23,7 +23,7 @@ def clear(args: Namespace, dir: Path) -> None:
         if len(versions) <= 1:
             continue
         keep = max(x[0] for x in versions)
-        for (version, item) in versions:
+        for version, item in versions:
             if version == keep:
                 continue
             modified_time = datetime.fromtimestamp(item.stat().st_mtime)

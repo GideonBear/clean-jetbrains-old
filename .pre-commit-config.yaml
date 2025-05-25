@@ -43,7 +43,7 @@ repos:
     rev: v2.4.1
     hooks:
       - id: codespell
-        args: ["--write-changes"]
+        args: [ "--write-changes" ]
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.11.11

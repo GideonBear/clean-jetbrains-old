@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import re
 import subprocess
 from argparse import ArgumentParser, Namespace
@@ -8,26 +10,26 @@ from shutil import rmtree
 
 from packaging.version import Version
 
-REGEX = re.compile(r"([a-zA-Z]+)([0-9\.]+)")
+REGEX = re.compile(r"([a-zA-Z]+)([0-9.]+)")
 
 
-def clear(args: Namespace, dir: Path) -> None:
+def clear(args: Namespace, dir_: Path) -> None:
     tools: defaultdict[str, list[tuple[Version, Path]]] = defaultdict(list)
-    for item in dir.iterdir():
+    for item in dir_.iterdir():
         match = REGEX.match(item.name)
         if match is None:
             continue
         tool, version = match.groups()
         tools[tool].append((Version(version), item))
-    for _tool, versions in tools.items():
+    for versions in tools.values():
         if len(versions) <= 1:
             continue
         keep = max(x[0] for x in versions)
         for version, item in versions:
             if version == keep:
                 continue
-            modified_time = datetime.fromtimestamp(item.stat().st_mtime)
-            modified_ago = datetime.now() - modified_time
+            modified_time = datetime.fromtimestamp(item.stat().st_mtime)  # noqa: DTZ006 only using naive datetimes
+            modified_ago = datetime.now() - modified_time  # noqa: DTZ005 only using naive datetimes
             if modified_ago < timedelta(days=30):
                 continue
             print(f"Removing {item}")
@@ -38,9 +40,13 @@ def remove(args: Namespace, item: Path) -> None:
     if args.remove_mode == "rm":
         rmtree(item)
     elif args.remove_mode == "trash":
-        subprocess.run(["trash", item], check=True)
+        subprocess.run(  # noqa: S603 argument to `trash` is safe
+            ["trash", item],  # noqa: S607 we need to find `trash` wherever it is; also this level of safety is out of scope
+            check=True,
+        )
     else:
-        raise AssertionError("Unreachable")
+        msg = "Unreachable"
+        raise AssertionError(msg)
 
 
 def parse_args() -> Namespace:

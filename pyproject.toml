@@ -25,6 +25,7 @@ indent = 4
 [tool.mypy]
 exclude = '^tests/'
 show_error_context = true
+show_error_codes = true
 pretty = true
 
 warn_unused_configs = true

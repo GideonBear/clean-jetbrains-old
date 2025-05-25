@@ -17,3 +17,51 @@ clean-jetbrains-old = "clean_jetbrains_old:main"
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[tool.mypy]
+exclude = '^tests/'
+show_error_context = true
+pretty = true
+
+warn_unused_configs = true
+
+strict = true  # All strict checks are already listed below, only here for future-proofing
+
+# It already warns for the import, so we do not want to warn for each individual use.
+# If the import is silenced, there's nothing else we can do so silence the uses as well.
+# disallow_any_unimported = true
+disallow_any_decorated = true
+disallow_any_explicit = true
+disallow_any_generics = true
+disallow_subclassing_any = true
+
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_return_any = true
+warn_unreachable = true
+
+extra_checks = true
+implicit_reexport = false
+strict_concatenate = true
+strict_equality = true
+strict_bytes = true
+
+enable_error_code = [
+    "redundant-self",
+    "deprecated",
+    "redundant-expr",
+    "possibly-undefined",
+    "truthy-bool",
+    "truthy-iterable",
+    "ignore-without-code",
+    "unused-awaitable",
+    "possibly-undefined",
+    "mutable-override",
+]

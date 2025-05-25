@@ -10,6 +10,7 @@ from shutil import rmtree
 
 from packaging.version import Version
 
+
 REGEX = re.compile(r"([a-zA-Z]+)([0-9.]+)")
 
 

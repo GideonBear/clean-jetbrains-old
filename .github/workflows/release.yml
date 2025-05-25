@@ -1,0 +1,60 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  create_release:
+    name: Create release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Create release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+
+  #      - name: Output release url file
+  #        run: echo "${{ steps.create_release.outputs.upload_url }}" > release_url.txt
+
+  #      - name: Save release url file for publish
+  #        uses: actions/upload-artifact@v1
+  #        with:
+  #          name: release_url
+  #          path: release_url.txt
+
+  publish_pypi:
+    name: Build and publish package
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+    permissions:
+      # For PyPI's trusted publishing.
+      id-token: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      #      - name: "Set up Python"
+      #        uses: actions/setup-python@v5
+      #        with:
+      #          python-version-file: ".python-version"
+
+      - name: Build
+        run: uv build
+
+      - name: Publish
+        run: uv publish

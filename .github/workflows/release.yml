@@ -43,11 +43,6 @@ jobs:
         with:
           enable-cache: true
 
-      #      - name: "Set up Python"
-      #        uses: actions/setup-python@v5
-      #        with:
-      #          python-version-file: ".python-version"
-
       - name: Build
         run: uv build
 

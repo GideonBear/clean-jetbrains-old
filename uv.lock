@@ -11,7 +11,7 @@ dependencies = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "packaging", specifier = ">=25.0" }]
+requires-dist = [{ name = "packaging", specifier = ">=24" }]
 
 [[package]]
 name = "packaging"

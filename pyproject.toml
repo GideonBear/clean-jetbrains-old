@@ -5,7 +5,7 @@ requires = [ "hatchling" ]
 
 [project]
 name = "clean-jetbrains-old"
-version = "0.1.7"
+version = "0.1.8"
 description = "Add your description here"
 readme = "README.md"
 license = "GPL-3.0-only"

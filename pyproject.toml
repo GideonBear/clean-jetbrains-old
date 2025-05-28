@@ -18,6 +18,9 @@ dependencies = [
     "packaging>=24",
 ]
 
+urls.bugs = "https://github.com/%7B%7Bcookiecutter.__gh_slug%7D%7D/issues "
+urls.homepage = "https://github.com/%7B%7Bcookiecutter.__gh_slug%7D%7D "
+
 scripts.clean-jetbrains-old = "clean_jetbrains_old:main"
 
 [tool.ruff]

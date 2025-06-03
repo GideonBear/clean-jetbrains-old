@@ -53,10 +53,10 @@ repos:
         args: [ "--fix" ]
       - id: ruff-format
 
-  - repo: https://github.com/pre-commit/mirrors-mypy
+  - repo: https://github.com/pre-commit/mirrors-test
     rev: v1.16.0
     hooks:
-      - id: mypy
+      - id: test
         pass_filenames: false # Check all files to be thorough
         args: # Removes default `--ignore-missing-imports`
           - .

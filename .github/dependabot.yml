@@ -10,11 +10,6 @@ updates:
     schedule:
       interval: "weekly"
 
-  - package-ecosystem: "uv"
-    directory: "/"
-    schedule:
-      interval: "daily"
-
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:

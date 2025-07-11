@@ -79,5 +79,8 @@ def main() -> None:
     args = parse_args()
 
     clear(args, Path.home() / ".cache/JetBrains")
+    clear(args, Path.home() / ".cache/Google")  # AndroidStudio
     clear(args, Path.home() / ".local/share/JetBrains")
+    clear(args, Path.home() / ".local/share/Google")  # AndroidStudio
     clear(args, Path.home() / ".config/JetBrains")
+    clear(args, Path.home() / ".config/Google")  # AndroidStudio

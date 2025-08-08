@@ -105,4 +105,5 @@ enable_error_code = [
     "unused-awaitable",
     "possibly-undefined",
     "mutable-override",
+    "exhaustive-match",
 ]

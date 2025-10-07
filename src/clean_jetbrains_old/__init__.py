@@ -16,6 +16,8 @@ REGEX = re.compile(r"([a-zA-Z]+)([0-9.]+)")
 
 def clear(args: Namespace, dir_: Path) -> None:
     tools: defaultdict[str, list[tuple[Version, Path]]] = defaultdict(list)
+    if not dir_.exists():
+        return
     for item in dir_.iterdir():
         match = REGEX.match(item.name)
         if match is None:

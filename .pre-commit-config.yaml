@@ -75,3 +75,7 @@ repos:
         args: ["--verbose"]
       - id: check-dependabot
         args: ["--verbose"]
+
+
+ci:
+  autoupdate_commit_msg: "chore(pre-commit): autoupdate"

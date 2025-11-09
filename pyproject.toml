@@ -1,6 +1,6 @@
 [build-system]
 build-backend = "uv_build"
-requires = [ "uv-build>=0.8.8,<0.9" ]
+requires = [ "uv-build>=0.9.8,<0.10" ]
 
 [project]
 name = "clean-jetbrains-old"
@@ -15,6 +15,7 @@ requires-python = ">=3.14"
 classifiers = [
     "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
     "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.14",
 ]
 dependencies = [
     "packaging>=24",

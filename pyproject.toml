@@ -27,6 +27,8 @@ urls.homepage = "https://github.com/GideonBear/clean-jetbrains-old"
 scripts.clean-jetbrains-old = "clean_jetbrains_old:main"
 
 [tool.ruff]
+format.preview = true
+
 lint.select = [ "ALL" ]
 
 lint.ignore = [

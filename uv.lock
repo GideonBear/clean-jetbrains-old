@@ -4,7 +4,7 @@ requires-python = ">=3.14"
 
 [[package]]
 name = "clean-jetbrains-old"
-version = "0.1.15"
+version = "0.1.16"
 source = { editable = "." }
 dependencies = [
     { name = "packaging" },

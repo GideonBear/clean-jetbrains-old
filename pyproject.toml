@@ -28,6 +28,7 @@ scripts.clean-jetbrains-old = "clean_jetbrains_old.main:main"
 
 [tool.ruff]
 format.preview = true
+format.nested-string-quote-style = "preferred"
 lint.select = [
     "ALL",
     "DTZ002", # Useful outside of timezones

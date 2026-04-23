@@ -23,6 +23,10 @@ def clear(args: Namespace, dir_: Path) -> None:
         if match is None:
             continue
         tool, version = match.groups()
+        if tool == "PyCharmCE":
+            # Consider PyCharmCE as part of PyCharm to make sure old PyCharmCE dirs are
+            #  removed when moving to universal PyCharm
+            tool = "PyCharm"
         tools[tool].append((Version(version), item))
     for versions in tools.values():
         if len(versions) <= 1:

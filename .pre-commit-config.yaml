@@ -119,7 +119,7 @@ repos:
         pass_filenames: false # Check all files to be thorough
         args: [.] # Removes default `--ignore-missing-imports`
         additional_dependencies:
-          - packaging==26.1
+          - packaging==26.2
 
   - repo: https://github.com/tox-dev/pyproject-fmt
     rev: v2.21.1

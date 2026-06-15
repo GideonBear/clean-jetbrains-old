@@ -102,7 +102,7 @@ repos:
   # Python
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.15.16
+    rev: v0.15.17
     hooks:
       - id: ruff-check
         args: [--fix]
@@ -122,7 +122,7 @@ repos:
           - packaging==26.2
 
   - repo: https://github.com/tox-dev/pyproject-fmt
-    rev: v2.23.0
+    rev: v2.24.1
     hooks:
       - id: pyproject-fmt
 
@@ -133,7 +133,7 @@ repos:
         args: [src]
 
   - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 0.11.19
+    rev: 0.11.21
     hooks:
       - id: uv-lock
 

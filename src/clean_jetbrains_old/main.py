@@ -35,8 +35,8 @@ def clear(args: Namespace, dir_: Path) -> None:
         for version, item in versions:
             if version == keep:
                 continue
-            modified_time = datetime.fromtimestamp(item.stat().st_mtime)  # noqa: DTZ006 only using naive datetimes
-            modified_ago = datetime.now() - modified_time  # noqa: DTZ005 only using naive datetimes
+            modified_time = datetime.fromtimestamp(item.stat().st_mtime)  # ruff:ignore[call-datetime-fromtimestamp] only using naive datetimes
+            modified_ago = datetime.now() - modified_time  # ruff:ignore[call-datetime-now-without-tzinfo] only using naive datetimes
             if modified_ago < timedelta(days=30):
                 continue
             print(f"Removing {item}")
@@ -47,8 +47,8 @@ def remove(args: Namespace, item: Path) -> None:
     if args.remove_mode == "rm":
         rmtree(item)
     elif args.remove_mode == "trash":
-        subprocess.run(  # noqa: S603 argument to `trash` is safe
-            ["trash", item],  # noqa: S607 we need to find `trash` wherever it is; also this level of safety is out of scope
+        subprocess.run(  # ruff:ignore[subprocess-without-shell-equals-true] argument to `trash` is safe
+            ["trash", item],  # ruff:ignore[start-process-with-partial-path] we need to find `trash` wherever it is; also this level of safety is out of scope
             check=True,
         )
     else:

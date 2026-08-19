@@ -102,7 +102,7 @@ repos:
   # Python
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.16.1
+    rev: v0.16.3
     hooks:
       - id: ruff-check
         args: [--fix]
@@ -119,7 +119,7 @@ repos:
       - id: ruff-format
 
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v2.3.0
+    rev: v2.3.1
     hooks:
       - id: mypy
         pass_filenames: false # Check all files to be thorough
@@ -128,7 +128,7 @@ repos:
           - packaging==26.2
 
   - repo: https://github.com/tox-dev/pyproject-fmt
-    rev: v2.26.0
+    rev: v2.28.0
     hooks:
       - id: pyproject-fmt
 
@@ -139,7 +139,7 @@ repos:
         args: [src]
 
   - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 0.12.1
+    rev: 0.12.5
     hooks:
       - id: uv-lock
 
